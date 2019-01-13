@@ -1,0 +1,50 @@
+.button {
+    cursor: pointer;
+}
+body {
+    background-color: black;
+}
+.image {
+    width: 160px;
+    height:160px;
+    display: block;
+    margin: 15px;
+    border: 3px solid darkred;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+
+.holder {
+    position: relative;
+    width: fit-content;
+    text-align: center;
+   
+    float:left;
+    margin: 5px;
+
+}
+h6 {
+    margin: 0 auto;
+    font-weight: 900;
+    color: white;
+    
+
+
+
+}
+
+.buttons {
+    
+    width: fit-content;
+    margin: 0 auto;
+}
+.dugme {
+    margin: 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
