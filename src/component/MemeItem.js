@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-
+import { newMemes } from './../actions/index';
 
 
 class MemeItem extends Component {
- 
+ constructor(){
+    super();
+
+    this.state = {
+      hovered:false
+    }
+  }
+  //KAd kliknem treba da dispatchuje new meme
+//postMeme(){
+//    newMemes()
+ //   console.log(this.props)
+ // }
+
   render() {
-    
+      
     return (
-      <div>
-
-
-       {
-            this.props.memes.slice(0,this.props.state.memeLimit).map((meme,index) => {
-            return (
-                <div key={index}>
-               
-               <div className="holder">
-                <h6>{meme.name}  </h6>
-                <img className="image" src={meme.url} />
-                </div>
-
-                
-                </div>
-            )
-            })
-       }
-
-
-
+      <div 
+      
+      className="holder">
+     
+        <h6>{this.props.meme.name}</h6>
+        <img 
+        onMouseEnter = {()=>{ return this.setState({ hovered:true}) }}
+        onMouseLeave = {()=>{ return this.setState({ hovered:false}) }} 
+        className = {this.state.hovered ? "darken"  : "image" } src={this.props.meme.url} 
+        onClick = {()=>this.props.postMeme(this.props.meme)}
+        />
+        
       </div>
+
     );
   }
 }
@@ -38,5 +41,14 @@ class MemeItem extends Component {
 function mapStateToProps(state){
   return state;
 }
+function mapDispatchToProps(dispatch) {
+    return({
+        postMeme: (meme) => {
+          dispatch(newMemes(meme))
+          
+          }
+    })
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MemeItem);
 
-export default connect(mapStateToProps, null)(MemeItem);
+

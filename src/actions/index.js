@@ -13,6 +13,7 @@ console.log(http.responseText)
 
 
 export const RECEIVE_MEMES = 'RECEIVE_MEMES';
+export const NEW_MEME = 'NEW_MEME';
 
 function receiveMemes(json) {
     const memes = json.data.memes;
@@ -34,3 +35,12 @@ export function fetchMemes() {
         .then(json => dispatch(receiveMemes(json)))
     }
 }
+
+export function newMemes(meme) {
+    
+    return {
+        type: NEW_MEME,
+        meme
+    }
+}
+
