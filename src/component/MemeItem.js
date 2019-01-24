@@ -15,12 +15,15 @@ class MemeItem extends Component {
 
   postMeme() {
     console.log(this.props)
-    const text0 = this.props.text0;
-    const text1 = this.props.text1;
+        
+       const  text0 = this.props.text0;
+        const text1 = this.props.text1;
+   
+    
     const memeObj = {
       template_id: this.props.meme.id,
-      text0,
-      text1
+      text0: this.props.text0.length > 0 ? text0 : "napisi nesto ",
+      text1: this.props.text1.length > 0 ? text1 : "idiote "
     }
     this.props.createMeme(memeObj);
   }

@@ -6,6 +6,10 @@ import { Button, ButtonToolbar } from 'react-bootstrap';
 import MemeItem from './MemeItem';
 import NewMemeItem from '../component/NewMemeItem';
 import { Form, FormGroup, FormControl, ControlLabel } from  'react-bootstrap';
+
+
+
+
 class App extends Component {
   constructor(){
     super();
@@ -24,6 +28,7 @@ class App extends Component {
       <div className="container">
         <h1>Generator meme App</h1>
              <h4>Write some text</h4>
+         <NewMemeItem />
         <div className="items">
         
         </div>

@@ -57,10 +57,10 @@ h5 {
 }
 
 .newMemeHolder {
-    display: block;
+    display: inline;
     width:80%;
     margin: 0 auto;
-    position: relative;
+   
 
 }
 .memeHolder {
