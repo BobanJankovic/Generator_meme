@@ -13,7 +13,38 @@ body {
     padding: 5px;
     border-radius: 20px;
 }
+h4 {
+    display: block;
+}
 
+h5 {
+    position: absolute;
+    left: 0;
+    color: gold;
+    font-weight: 900;
+}
+.donji {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: gold;
+    font-weight: 900;
+
+}
+.newMemepic{
+    display: inline;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+}
+.control-label {
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.forms {
+    display: block;
+}
 .darken {
     width: 160px;
     height:160px;
@@ -23,6 +54,20 @@ body {
     padding: 5px;
     border-radius: 30px;
 
+}
+
+.newMemeHolder {
+    display: block;
+    width:80%;
+    margin: 0 auto;
+    position: relative;
+
+}
+.memeHolder {
+    display: block;
+    width:80%;
+    margin: 0 auto;
+    height: fit-content;
 }
 .overlay {
     position: relative;
@@ -71,26 +116,26 @@ h6 {
 
 
 
-
-
-
-
-
-
-
-
-
 .buttons {
-    
-    width: fit-content;
-    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.dugme {
-    margin: 15px;
-}
+
+
+
+
+
+
+
+
+
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    margin-bottom: 40px;
 }

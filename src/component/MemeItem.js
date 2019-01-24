@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { newMemes } from './../actions/index';
+import {  createMeme } from './../actions/index';
 
 
 class MemeItem extends Component {
@@ -11,17 +11,24 @@ class MemeItem extends Component {
       hovered:false
     }
   }
-  //KAd kliknem treba da dispatchuje new meme
-//postMeme(){
-//    newMemes()
- //   console.log(this.props)
- // }
+  
 
+  postMeme() {
+    console.log(this.props)
+    const text0 = this.props.text0;
+    const text1 = this.props.text1;
+    const memeObj = {
+      template_id: this.props.meme.id,
+      text0,
+      text1
+    }
+    this.props.createMeme(memeObj);
+  }
   render() {
       
     return (
       <div 
-      
+    
       className="holder">
      
         <h6>{this.props.meme.name}</h6>
@@ -29,7 +36,7 @@ class MemeItem extends Component {
         onMouseEnter = {()=>{ return this.setState({ hovered:true}) }}
         onMouseLeave = {()=>{ return this.setState({ hovered:false}) }} 
         className = {this.state.hovered ? "darken"  : "image" } src={this.props.meme.url} 
-        onClick = {()=>this.props.postMeme(this.props.meme)}
+        onClick = {()=>this.postMeme()}
         />
         
       </div>
@@ -37,18 +44,11 @@ class MemeItem extends Component {
     );
   }
 }
-
+// na klik smo ubacili u store meme e sada treba napraviti komponentu koja ce prikazivati svaki kliknuti meme iznad forme kasije koristimo post metodu da pokupimo ono iz forme i da to napise na slici i verovatno takvu sliku da ubacimo u store ili gde vec
 function mapStateToProps(state){
   return state;
 }
-function mapDispatchToProps(dispatch) {
-    return({
-        postMeme: (meme) => {
-          dispatch(newMemes(meme))
-          
-          }
-    })
-}
-export default connect(mapStateToProps, mapDispatchToProps)(MemeItem);
+
+export default connect(mapStateToProps, {createMeme})(MemeItem);
 
 

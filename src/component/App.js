@@ -4,6 +4,7 @@ import { ColoredLine} from './hr';
 import './../App.css';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import MemeItem from './MemeItem';
+import NewMemeItem from '../component/NewMemeItem';
 import { Form, FormGroup, FormControl, ControlLabel } from  'react-bootstrap';
 class App extends Component {
   constructor(){
@@ -22,31 +23,42 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Generator meme App</h1>
-        <div className="forms">
+             <h4>Write some text</h4>
+        <div className="items">
+        
+        </div>
+   
           <Form inline >
+          
             <FormGroup>
+            {"             "}
               <ControlLabel>Upper text</ControlLabel>
+              {"           "}
               <FormControl 
                 type="text"
                 value={this.state.text0} 
                 onChange={(event)=>{this.setState({text0: event.target.value})}}
                 placeholder="Enter text"
               />
+              {"             "}
               <ControlLabel>Bottom text</ControlLabel>
+               {"             "}
               <FormControl 
                 type="text"
                 value={this.state.text1}
                 onChange={(event)=>{this.setState({text1: event.target.value})}}
                 placeholder="Enter text"
               />
-            <Button onClick={()=> {console.log(this.state.text0+this.state.text1)}} bsSize="large" bsStyle="success">Submit</Button>
+               {"             "}
+            
             </FormGroup>
           </Form>
-        </div>
+       
+        
        {
           this.props.memes.slice(0,this.state.memeLimit).map((meme,index) => {
             return (
-              <div key={index}>
+              <div className="memeHolder" key={index}>
                 <MemeItem meme={meme}
                 text0={this.state.text0}
                 text1={this.state.text1} />
@@ -54,6 +66,7 @@ class App extends Component {
             )
           })
         }
+         
         <div className="buttons">      
           <Button className="dugme" bsSize="large" bsStyle="primary" onClick={()=>{ this.setState({memeLimit:this.state.memeLimit+10})}}>+</Button>
           {this.state.memeLimit > 10  &&  <Button className="dugme" bsSize="large" bsStyle="danger" onClick={()=>{ this.setState({memeLimit:this.state.memeLimit-10})}}>-</Button>  } 
